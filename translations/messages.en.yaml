@@ -1,0 +1,6 @@
+app:
+    ui:
+        suppliers: Suppliers
+        new_supplier: New supplier
+        email: Email
+        trust: Trust

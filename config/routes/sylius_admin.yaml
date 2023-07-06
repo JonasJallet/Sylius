@@ -1,6 +1,11 @@
 sylius_admin:
     resource: "@SyliusAdminBundle/Resources/config/routing.yml"
     prefix: /admin
+    
+sylius_paypal_plugin_admin_download_payouts_report:
+    path: /admin/paypal/payouts-report
+    methods: [ GET ]
+    controller: App\Controller\Admin\PaypalController::downloadPayoutsReport
 
 app_supplier:
     resource: |
@@ -11,3 +16,15 @@ app_supplier:
         grid: app_admin_supplier
     type: sylius.resource
     prefix: /admin
+
+app_admin_supplier_trust:
+    path: /admin/suppliers/{id}/trust
+    methods: [PUT]
+    defaults:
+        _controller: app.controller.supplier::applyStateMachineTransitionAction
+        _sylius:
+            state_machine:
+                graph: app_supplier
+                transition: trust
+            redirect: referer
+            flash: app.ui.supplier_trusted

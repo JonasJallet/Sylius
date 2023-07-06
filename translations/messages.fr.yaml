@@ -1,0 +1,6 @@
+app:
+    ui:
+        suppliers: Fournisseurs
+        new_supplier: Nouveau fournisseur
+        email: Email
+        trust: Approuver

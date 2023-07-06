@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Supplier implements SupplierInterface
 {
+    public const STATE_NEW = 'new';
+    public const STATE_TRUSTED = 'pending';
     /**
      * @var int|null
      *
@@ -32,6 +34,29 @@ class Supplier implements SupplierInterface
      * @ORM\Column(type="string"))
      */
     private ?string $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string"))
+     */
+    private string $state = self::STATE_NEW;
+
+    /**
+     * @return mixed
+     */
+    public function getState(): string
+    {
+        return $this->state;
+    }
+
+    /**
+     * @param mixed $state
+     */
+    public function setState($state): void
+    {
+        $this->state = $state;
+    }
 
     public function getId(): ?int
     {
