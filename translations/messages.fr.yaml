@@ -1,6 +1,9 @@
 app:
     ui:
+        supplier: Fournisseur
         suppliers: Fournisseurs
         new_supplier: Nouveau fournisseur
         email: Email
         trust: Approuver
+        t_shirt_product: T-shirt produit
+
